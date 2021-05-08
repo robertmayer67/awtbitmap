@@ -52,7 +52,7 @@
 				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<compilerVersion>${javac.target}</compilerVersion>
-					<source>${javac.target}</source>
+					<source>${javac.source}</source>
 					<target>${javac.target}</target>
 				</configuration>
 			</plugin>

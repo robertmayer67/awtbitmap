@@ -5,25 +5,26 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 public class AWTBitmap {
-    static final int DEEP = 256;
-    static BitmapComponent component;
+    private static final int DEEP = 256;
+    private static BitmapComponent component;
 
-    static double CX = -0.76;
-    static double CY = 0.2;
-    static double delta = 0.02;
+    private static double CX = -0.76;
+    private static double CY = 0.2;
+    private static double delta = 0.02;
 
     public static void main(String[] argv) {
         component = new BitmapComponent(800, 600);
 
         final long tStart = System.currentTimeMillis();
-        //verlauf(component.img);
-        julia(component.img);
-        //mandelbrot(component.img);
+
+        if (argv.length > 0 && "-j".equals(argv[0])) julia(component.img);
+        else if (argv.length > 0 && "-m".equals(argv[0])) mandelbrot(component.img);
+        else verlauf(component.img);
 
         System.out.println("Done in " + (System.currentTimeMillis() - tStart) + "ms");
 
         java.awt.EventQueue.invokeLater(() -> {
-            final Frame f = new Frame("AWT Fractal");
+            final Frame f = new Frame("AWT Bitmap Demo");
             f.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     System.exit(0);
@@ -55,7 +56,7 @@ public class AWTBitmap {
                 @Override
                 public void keyReleased(KeyEvent e) {
                     final char keyChar = e.getKeyChar();
-                    System.out.printf("keyReleased modifiers=%d, keyChar=%c, keyCode=%d\n", e.getModifiers(), keyChar, e.getKeyCode());
+                    System.out.printf("keyReleased modifiers=%d, keyChar=%c, keyCode=%d\n", e.getModifiersEx(), keyChar, e.getKeyCode());
 
                     if (keyChar == '+') delta *= 2;
                     else if (keyChar == '-') delta /= 2;
@@ -83,7 +84,7 @@ public class AWTBitmap {
         });
     }
 
-    static void verlauf(BufferedImage img) {
+    private static void verlauf(BufferedImage img) {
         for (int x = 0; x < 800; x++) {
             final int r = (int)((double)x / 800.0 * 256.0);
             for (int y = 0; y < 600; y++) {
@@ -96,7 +97,7 @@ public class AWTBitmap {
 
 
 
-    static void mandelbrot(BufferedImage img) {
+    private static void mandelbrot(BufferedImage img) {
         java.util.stream.IntStream.range(0, 800).parallel().forEach(x -> {
         //for (int x = 0; x < 800; x++) {
             final double c = (double)x / 800.0 * 4.0 - 2.0;
@@ -109,7 +110,7 @@ public class AWTBitmap {
     }
 
     // see https://www.hameister.org/projects_fractal.html
-    static int checkMandel(double ci, double c) {
+    private static int checkMandel(double ci, double c) {
         double zi = 0.0;
         double z  = 0.0;
         for (int i = 0; i < DEEP; i++) {
@@ -126,7 +127,7 @@ public class AWTBitmap {
 
 
 
-    static void julia(BufferedImage img) {
+    private static void julia(BufferedImage img) {
         java.util.stream.IntStream.range(0, 800).parallel().forEach(x -> {
             final double c = (double)x / 800.0 * 4.0 - 2.0;
             //final double c = (double)x / 200.0 - 2.0;
@@ -141,7 +142,7 @@ public class AWTBitmap {
 
     // see https://rosettacode.org/wiki/Julia_set#Java
     // see https://de.wikipedia.org/wiki/Julia-Menge
-    static int checkJulia(double ci, double c) {
+    private static int checkJulia(double ci, double c) {
         for (int i = 0; i < DEEP; i++) {
             final double tmp = c * c - ci * ci + (CX /*-0.7*/     /*-0.4*/ /*0.285*/ /*-0.742*/ /*-0.8*/);
             ci = 2.0 * c * ci                  + (CY /* 0.27015*/ /* 0.6*/ /*0.01 */ /* 0.1  */  /*0.2*/);
