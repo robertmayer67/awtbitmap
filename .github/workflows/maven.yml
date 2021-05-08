@@ -1,6 +1,17 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
+# Also save the resulting binary as an "artifact".
+# How do I download an action artifact from GitHub?
+# * On GitHub, navigate to the main page of the repository.
+# * Under your repository name, click Actions.
+# * In the left sidebar, click the workflow you want to see.
+# * From the list of workflow runs, click the name of the run you want to see.
+# * Under Artifacts, click the artifact you want to download.
+#
+# Geht zwar, artifacts kann aber nicht jeder runterladen,
+# ist also kein release ersatz.
+
 name: Java CI with Maven
 
 on:
@@ -31,5 +42,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - uses: actions/upload-artifact@v2
       with:
-        name: latest binary
-        path: target/awtbitmap-1.0-SNAPSHOT.jar
+        name: binary release (.zip)
+        path: |
+          LICENSE
+          target/awtbitmap-1.0-SNAPSHOT.jar
