@@ -45,4 +45,4 @@ jobs:
         name: binary release (.zip)
         path: |
           LICENSE
-          target/awtbitmap-1.0-SNAPSHOT.jar
+          target/awtbitmap.jar
