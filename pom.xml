@@ -17,6 +17,8 @@
     </licenses>
 
     <properties>
+        <maven.build.timestamp.format>yyyyMMdd_HHmm</maven.build.timestamp.format>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javac.source>1.8</javac.source>
         <javac.target>1.8</javac.target>
@@ -97,6 +99,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${maven-jar-plugin.version}</version>
                 <configuration>
+                    <finalName>awtbitmap</finalName>
                     <archive>
                         <manifest>
                             <!-- <addClasspath>true</addClasspath> -->
@@ -104,6 +107,7 @@
                         </manifest>
                         <manifestEntries>
                             <Automatic-Module-Name>com.robertmayer.demo</Automatic-Module-Name>
+                            <Implementation-Version>${project.version}/${maven.build.timestamp}/${user.name}</Implementation-Version>
                         </manifestEntries>
                     </archive>
                 </configuration>

@@ -3,8 +3,26 @@ package com.robertmayer.demo;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.jar.Manifest;
 
 public class AWTBitmap {
+    private static String versionInfo;
+    static {
+        final ClassLoader cl = AWTBitmap.class.getClassLoader();
+        final URL url = cl.getResource("META-INF/MANIFEST.MF");
+        if (url == null) versionInfo = "unknown";
+        else {
+            try (final InputStream is = url.openStream()) {
+                final Manifest manifest = new Manifest(is);
+                versionInfo = manifest.getMainAttributes().getValue("Implementation-Version");
+            } catch (IOException e) {
+                versionInfo = "error";
+            }
+        }
+    }
     private static final int DEEP = 256;
     private static BitmapComponent component;
 
@@ -19,7 +37,12 @@ public class AWTBitmap {
 
         if (argv.length > 0 && "-j".equals(argv[0])) julia(component.img);
         else if (argv.length > 0 && "-m".equals(argv[0])) mandelbrot(component.img);
-        else verlauf(component.img);
+        else if (argv.length > 0 && "-c".equals(argv[0])) colors(component.img);
+        else {
+            System.out.println("Version " + versionInfo);
+            System.out.println("Usage: java -jar awtbitmap.jar [-j|-m|-c]");
+            return;
+        }
 
         System.out.println("Done in " + (System.currentTimeMillis() - tStart) + "ms");
 
@@ -84,7 +107,7 @@ public class AWTBitmap {
         });
     }
 
-    private static void verlauf(BufferedImage img) {
+    private static void colors(BufferedImage img) {
         for (int x = 0; x < 800; x++) {
             final int r = (int)((double)x / 800.0 * 256.0);
             for (int y = 0; y < 600; y++) {
