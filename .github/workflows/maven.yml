@@ -45,4 +45,5 @@ jobs:
         name: binary release (.zip)
         path: |
           LICENSE
-          target/awtbitmap.jar
+          target/**/awtbitmap.jar
+        retention-days: 3
