@@ -3,7 +3,7 @@
 
     <groupId>io.github.mayerrobert</groupId>
     <artifactId>awtbitmap</artifactId>
-    <version>0.4-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <description>AWT Bitmap Demo</description>
@@ -26,8 +26,7 @@
         <url>https://github.com/mayerrobert/awtbitmap</url>
         <connection>scm:git:git://github.com/mayerrobert/awtbitmap.git</connection>
         <developerConnection>scm:git:git@github.com:mayerrobert/awtbitmap.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <properties>
         <maven.build.timestamp.format>yyyyMMdd_HHmm</maven.build.timestamp.format>
