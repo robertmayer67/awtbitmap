@@ -1,4 +1,4 @@
-package com.robertmayer.demo;
+package io.github.mayerrobert.awtbitmap;
 
 import java.awt.*;
 import java.awt.event.*;

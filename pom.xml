@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.robertmayer.demo</groupId>
+    <groupId>io.github.mayerrobert</groupId>
     <artifactId>awtbitmap</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -162,7 +162,7 @@
                     <archive>
                         <manifest>
                             <!-- <addClasspath>true</addClasspath> -->
-                            <mainClass>com.robertmayer.demo.AWTBitmap</mainClass>
+                            <mainClass>io.github.mayerrobert.awtbitmap.AWTBitmap</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Automatic-Module-Name>com.robertmayer.demo</Automatic-Module-Name>
