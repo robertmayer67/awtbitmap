@@ -27,7 +27,7 @@
     <scm>
         <url>https://github.com/mayerrobert/awtbitmap</url>
         <connection>scm:git:git://github.com/mayerrobert/awtbitmap.git</connection>
-        <developerConnection>scm:git:git@github.com:mayerrobert/awtbitmap.git</developerConnection>
+        <developerConnection>scm:git:mayerrobert@github.com:mayerrobert/awtbitmap.git</developerConnection>
     </scm>
 
     <properties>
