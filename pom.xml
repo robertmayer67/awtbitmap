@@ -16,6 +16,14 @@
         </license>
     </licenses>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/mayerrobert/awtbitmap</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <maven.build.timestamp.format>yyyyMMdd_HHmm</maven.build.timestamp.format>
 
