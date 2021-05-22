@@ -23,7 +23,7 @@
     </distributionManagement>
 
     <scm>
-        <url>https://github.com/mayerrobert/awtbitmap</url>
+        <url>https://github.com/mayerrobert/awtbitmap/blob/master</url>
         <connection>scm:git:git://github.com/mayerrobert/awtbitmap.git</connection>
         <developerConnection>scm:git:git@github.com:mayerrobert/awtbitmap.git</developerConnection>
         <tag>HEAD</tag>
@@ -34,7 +34,6 @@
         <javac.source>1.8</javac.source>
         <javac.target>1.8</javac.target>
 
-        <maven-dependency-plugin.version>2.9</maven-dependency-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-jar-plugin.version>2.5</maven-jar-plugin.version>
 
@@ -47,14 +46,9 @@
         <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
         <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
         <findbugs-plugin.version>3.0.5</findbugs-plugin.version>
-        <skypencil-findbugs.version>1.0.10</skypencil-findbugs.version>
-        <javancss-plugin.version>2.1</javancss-plugin.version>
         <jdepend-plugin.version>2.0</jdepend-plugin.version>
-        <maven-checkstyle-plugin.version>2.13</maven-checkstyle-plugin.version>
-        <checkstyle.version>6.2</checkstyle.version>
-        <maven-surefire-report-plugin.version>2.18.1</maven-surefire-report-plugin.version>
-        <jacoco-plugin.version>0.7.3.201502191951</jacoco-plugin.version>
         <versions-plugin.version>2.1</versions-plugin.version>
+        <maven-dependency-plugin.version>2.9</maven-dependency-plugin.version>
     </properties>
 
 	<build>
