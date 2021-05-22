@@ -26,8 +26,8 @@
         <url>https://github.com/mayerrobert/awtbitmap</url>
         <connection>scm:git:git://github.com/mayerrobert/awtbitmap.git</connection>
         <developerConnection>scm:git:git@github.com:mayerrobert/awtbitmap.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -59,6 +59,12 @@
 
 	<build>
 	    <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.0-M4</version>
+            </plugin>
+
             <plugin>
                 <!-- see https://github.com/git-commit-id/git-commit-id-maven-plugin
                      and https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/master/maven/docs/using-the-plugin.md -->
