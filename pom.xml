@@ -30,8 +30,6 @@
   </scm>
 
     <properties>
-        <maven.build.timestamp.format>yyyyMMdd_HHmm</maven.build.timestamp.format>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javac.source>1.8</javac.source>
         <javac.target>1.8</javac.target>
@@ -61,36 +59,9 @@
 
 	<build>
 	    <plugins>
-            <!--
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>1.4</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>create</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <doCheck>false</doCheck>
-                    <doUpdate>false</doUpdate>
-                    <providerImplementations>
-                        <git>jgit</git>
-                    </providerImplementations>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.scm</groupId>
-                        <artifactId>maven-scm-provider-jgit</artifactId>
-                        <version>1.9.5</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            -->
-            <plugin>
+                <!-- see https://github.com/git-commit-id/git-commit-id-maven-plugin
+                     and https://github.com/git-commit-id/git-commit-id-maven-plugin/blob/master/maven/docs/using-the-plugin.md -->
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
                 <version>4.0.0</version>
@@ -113,6 +84,7 @@
                         <includeOnlyProperty>git.closest.tag.name</includeOnlyProperty>
                         <includeOnlyProperty>git.tags</includeOnlyProperty>
                         <includeOnlyProperty>^git.commit.(time|version)$</includeOnlyProperty>
+                        <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
                         <includeOnlyProperty>git.commit.id.full</includeOnlyProperty>
                         <includeOnlyProperty>git.commit.id.describe</includeOnlyProperty>
                     </includeOnlyProperties>
@@ -178,8 +150,8 @@
                             <mainClass>io.github.mayerrobert.awtbitmap.AWTBitmap</mainClass>
                         </manifest>
                         <manifestEntries>
-                            <Automatic-Module-Name>com.robertmayer.demo</Automatic-Module-Name>
-                            <Implementation-Version>${project.version}@${git.commit.id.describe}@${git.commit.time}/Built by ${user.name} ${maven.build.timestamp}</Implementation-Version>
+                            <Automatic-Module-Name>io.github.mayerrobert.awtbitmap</Automatic-Module-Name>
+                            <Implementation-Version>${project.version}@${git.commit.id.describe}@${git.commit.time}/Built by ${user.name} ${git.build.time}</Implementation-Version>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -199,7 +171,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
 
     <reporting>
@@ -293,9 +264,6 @@
                     </reportSet>
                 </reportSets>
             </plugin>
-
         </plugins>
-
     </reporting>
-
 </project>
