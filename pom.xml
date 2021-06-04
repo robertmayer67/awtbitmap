@@ -38,7 +38,7 @@
         <maven-jar-plugin.version>2.5</maven-jar-plugin.version>
 
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-        <maven-surefirejunit.version>2.19</maven-surefirejunit.version>
+        <maven-surefirejunit.version>2.22.2</maven-surefirejunit.version>
 
         <!-- report maven-plugins -->
         <maven-reports-plugin.version>3.1.2</maven-reports-plugin.version>
