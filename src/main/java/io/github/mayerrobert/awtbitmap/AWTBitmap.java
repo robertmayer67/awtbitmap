@@ -37,9 +37,9 @@ public class AWTBitmap {
 
         final long tStart = System.currentTimeMillis();
 
-        if (argv.length > 0 && "-j".equals(argv[0])) julia(component.img);
-        else if (argv.length > 0 && "-m".equals(argv[0])) mandelbrot(component.img);
-        else if (argv.length > 0 && "-c".equals(argv[0])) colors(component.img);
+        if (argv.length > 0 && "-j".equals(argv[0])) { julia(component.img); }
+        else if (argv.length > 0 && "-m".equals(argv[0])) { mandelbrot(component.img); }
+        else if (argv.length > 0 && "-c".equals(argv[0])) { colors(component.img); }
         else {
             System.out.println("Version " + versionInfo);
             System.out.println("Usage: java -jar awtbitmap.jar [-j|-m|-c]");
