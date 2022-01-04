@@ -19,7 +19,7 @@ public class AWTBitmap {
                 final Manifest manifest = new Manifest(is);
                 versionInfo = manifest.getMainAttributes().getValue("Implementation-Version");
             } catch (IOException e) {
-                versionInfo = "error";
+                versionInfo = "(error reading manifest)";
             }
         }
     }
