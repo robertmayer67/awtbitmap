@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.jar.Manifest;
 
-public class AWTBitmap {
+public final class AWTBitmap {
     private AWTBitmap() { /* empty */ }
 
     private static String versionInfo;
