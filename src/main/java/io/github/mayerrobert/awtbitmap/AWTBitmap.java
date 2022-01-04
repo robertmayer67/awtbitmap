@@ -9,13 +9,15 @@ import java.net.URL;
 import java.util.jar.Manifest;
 
 public class AWTBitmap {
+    private AWTBitmap() { /* empty */ }
+
     private static String versionInfo;
     static {
         final ClassLoader cl = AWTBitmap.class.getClassLoader();
         final URL url = cl.getResource("META-INF/MANIFEST.MF");
-        if (url == null) versionInfo = "unknown";
+        if (url == null) { versionInfo = "unknown"; }
         else {
-            try (final InputStream is = url.openStream()) {
+            try (InputStream is = url.openStream()) {
                 final Manifest manifest = new Manifest(is);
                 versionInfo = manifest.getMainAttributes().getValue("Implementation-Version");
             } catch (IOException e) {
@@ -26,8 +28,8 @@ public class AWTBitmap {
     private static final int DEEP = 256;
     private static BitmapComponent component;
 
-    private static double CX = -0.76;
-    private static double CY = 0.2;
+    private static double CX = -0.76;  /*-0.7*/     /*-0.4*/ /*0.285*/ /*-0.742*/ /*-0.8*/
+    private static double CY = 0.2;    /* 0.27015*/ /* 0.6*/ /*0.01 */ /* 0.1  */  /*0.2*/
     private static double delta = 0.02;
 
     public static void main(String[] argv) {
@@ -49,6 +51,7 @@ public class AWTBitmap {
         java.awt.EventQueue.invokeLater(() -> {
             final Frame f = new Frame("AWT Bitmap Demo");
             f.addWindowListener(new WindowAdapter() {
+                @Override
                 public void windowClosing(WindowEvent e) {
                     System.exit(0);
                 }
@@ -59,10 +62,10 @@ public class AWTBitmap {
                     System.out.printf("x=%d, y=%d, button=%d\n", e.getX(), e.getY(), e.getButton());
                 }
 
-                @Override public void mousePressed(MouseEvent e) {}
-                @Override public void mouseReleased(MouseEvent e) {}
-                @Override public void mouseEntered(MouseEvent e) {}
-                @Override public void mouseExited(MouseEvent e) {}
+                @Override public void mousePressed(MouseEvent e) { /* empty */ }
+                @Override public void mouseReleased(MouseEvent e) { /* empty */ }
+                @Override public void mouseEntered(MouseEvent e) { /* empty */ }
+                @Override public void mouseExited(MouseEvent e) { /* empty */ }
             });
 
             f.addKeyListener(new KeyListener() {
@@ -167,8 +170,8 @@ public class AWTBitmap {
     // see https://de.wikipedia.org/wiki/Julia-Menge
     private static int checkJulia(double ci, double c) {
         for (int i = 0; i < DEEP; i++) {
-            final double tmp = c * c - ci * ci + (CX /*-0.7*/     /*-0.4*/ /*0.285*/ /*-0.742*/ /*-0.8*/);
-            ci = 2.0 * c * ci                  + (CY /* 0.27015*/ /* 0.6*/ /*0.01 */ /* 0.1  */  /*0.2*/);
+            final double tmp = c * c - ci * ci + CX;
+            ci = 2.0 * c * ci                  + CY;
             c = tmp;
             if (c * c + ci * ci >= 4) {
                 return DEEP - i;
