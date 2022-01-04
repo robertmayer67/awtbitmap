@@ -28,6 +28,7 @@ jobs:
         id: pmd
         uses: pmd/pmd-github-action@6d98898be0d59f46ec37dafcea33d8f8f55acfd1
         with:
+          analyzeModifiedFilesOnly: 'false'
           rulesets: 'quickstart.xml'
           sourcePath: 'src/main/java'
       - name: Upload SARIF file
