@@ -35,6 +35,7 @@ public final class AWTBitmap {
     public static void main(String[] argv) {
         component = new BitmapComponent(800, 600);
 
+        @SuppressWarnings("PMD.PrematureDeclaration")
         final long tStart = System.currentTimeMillis();
 
         if (argv.length > 0 && "-j".equals(argv[0])) { julia(component.img); }
