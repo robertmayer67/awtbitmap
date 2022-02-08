@@ -51,5 +51,5 @@ jobs:
         name: binary release (.zip) Java ${{ matrix.Java }}
         path: |
           LICENSE
-          */awtbitmap.jar   # target/awtbitmap.jar would preserve the directory in the zip
+          ./*/awtbitmap.jar   # target/awtbitmap.jar would preserve the directory in the zip
         retention-days: 3
