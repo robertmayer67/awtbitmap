@@ -41,7 +41,7 @@
         <maven-surefirejunit.version>2.22.2</maven-surefirejunit.version>
 
         <!-- report maven-plugins -->
-        <maven-reports-plugin.version>3.1.2</maven-reports-plugin.version>
+        <maven-reports-plugin.version>3.2.1</maven-reports-plugin.version>
         <maven-changelog-plugin.version>2.3</maven-changelog-plugin.version>
         <maven-jxr-plugin.version>3.1.1</maven-jxr-plugin.version>
         <maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version>
@@ -181,7 +181,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.2.1</version>
             </plugin>
 
             <!-- invoke with
