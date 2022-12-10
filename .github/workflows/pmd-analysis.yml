@@ -26,7 +26,7 @@ jobs:
           cache: maven
       - name: Run PMD
         id: pmd
-        uses: pmd/pmd-github-action@6d98898be0d59f46ec37dafcea33d8f8f55acfd1
+        uses: pmd/pmd-github-action@f47ab08ac718d79f712f556dd11d6448245643bc
         with:
           analyzeModifiedFilesOnly: 'false'
           rulesets: 'quickstart.xml'
