@@ -24,8 +24,8 @@ jobs:
       - name: Build and run JMurmel
         run: |
           java --version
-          javac -d build src/main/java/io/github/mayerrobert/AWTBitmap.java
-          jar --create --file awtbitmap.jar --main-class io.github.mayerrobert.AWTBitmap -C build .
+          javac -d build src/main/java/io/github/mayerrobert/awtbitmap/AWTBitmap.java
+          jar --create --file awtbitmap.jar --main-class io.github.mayerrobert.awtbitmap.AWTBitmap -C build .
           native-image -jar awtbitmap.jar
           ./awtbitmap
       
