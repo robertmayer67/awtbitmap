@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
 #        os: [macos-latest, windows-latest, ubuntu-latest]
-        os: [windows-latest]
+        os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
 
@@ -21,7 +21,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'
 
-      - name: Build and run JMurmel
+      - name: Build and run AWTBitmap
         run: |
           java --version
           javac -d build src/main/java/io/github/mayerrobert/awtbitmap/AWTBitmap.java
