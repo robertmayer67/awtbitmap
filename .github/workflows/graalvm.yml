@@ -30,7 +30,7 @@ jobs:
           ./awtbitmap
       
       - name: Upload binary
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: awtbitmap-${{ matrix.os }}
           path: awtbitmap*
