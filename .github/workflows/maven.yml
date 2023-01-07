@@ -53,8 +53,7 @@ jobs:
       run: mvn -B clean package --file pom.xml -Djavac.target=`echo "${{ matrix.java }}" | sed -e "s/-ea//g"`
 
     - name: Print env
-      run: echo "github.ref  ${{ github.ref }}" ; \
-           echo "matrix.java ${{ matrix.java }}"
+      run: echo "github.ref  ${{ github.ref }}" ; echo "matrix.java ${{ matrix.java }}"
 
     - name: Release
       uses: softprops/action-gh-release@v1
