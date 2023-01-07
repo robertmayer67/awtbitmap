@@ -1,24 +1,14 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-# Also save the resulting binary as an "artifact".
-# How do I download an action artifact from GitHub?
-# * On GitHub, navigate to the main page of the repository.
-# * Under your repository name, click Actions.
-# * In the left sidebar, click the workflow you want to see.
-# * From the list of workflow runs, click the name of the run you want to see.
-# * Under Artifacts, click the artifact you want to download.
-#
-# Geht zwar, artifacts kann aber nicht jeder runterladen,
-# ist also kein release ersatz.
+# When a tag is pushed then also create a release,
+# see https://github.com/softprops/action-gh-release
 
-name: Java CI with Maven
+name: Create release
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags: "awtbitmap*"
 
 jobs:
   build:
@@ -26,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '8', '17', '19' ]
-    name: Java ${{ matrix.Java }} CI
+        java: [ '17' ]
+    name: Java ${{ matrix.Java }} Release
 
     steps:
     - uses: actions/checkout@v3
@@ -48,3 +38,14 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B clean package --file pom.xml -Djavac.target=`echo "${{ matrix.java }}" | sed -e "s/-ea//g"`
+
+    - name: Print env
+      run: echo "github.ref  ${{ github.ref }}" ; echo "matrix.java ${{ matrix.java }}"
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        prerelease: true
+        files: |
+          LICENSE
+          **/awtbitmap.jar
