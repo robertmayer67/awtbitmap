@@ -3,7 +3,7 @@
 
     <groupId>io.github.mayerrobert</groupId>
     <artifactId>awtbitmap</artifactId>
-    <version>0.9-SNAPSHOT</version>
+    <version>0.9</version>
     <packaging>jar</packaging>
 
     <description>AWT Bitmap Demo</description>
@@ -26,7 +26,7 @@
         <url>https://github.com/mayerrobert/awtbitmap/blob/master</url>
         <connection>scm:git:git://github.com/mayerrobert/awtbitmap.git</connection>
         <developerConnection>scm:git:git@github.com:mayerrobert/awtbitmap.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>awtbitmap-0.9</tag>
     </scm>
 
     <properties>
