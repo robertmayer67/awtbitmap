@@ -41,11 +41,11 @@ jobs:
       run: mvn -B clean package --file pom.xml -Djavac.target=${{ env.JAVA_TARGET }}
 
     - name: Create zipfile
-      run: zip -j ${{ env.GITHUB_REF_NAME }}-jar.zip LICENSE target/awtbitmap.jar
+      run: zip -j ${{ github.ref_name }}-jar.zip LICENSE target/awtbitmap.jar
 
     - name: Create release and upload files
       uses: softprops/action-gh-release@v1
       with:
         prerelease: true
         files: |
-          ${{ env.GITHUB_REF_NAME }}-jar.zip
+          ${{ github.ref_name }}-jar.zip
