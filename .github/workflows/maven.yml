@@ -52,9 +52,13 @@ jobs:
     - name: Build with Maven
       run: mvn -B clean package --file pom.xml -Djavac.target=`echo "${{ matrix.java }}" | sed -e "s/-ea//g"`
 
+    -name: Print env
+      run: echo "github.ref: ${{ github.ref }}" ; \
+           echo "matrix.java: ${{ matrix.java }}
+
     - name: Release
       uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/') && "${{ matrix.Java }}" == "17"
+      if: startsWith(github.ref, 'refs/tags/') && (matrix.java == '17')
       with:
         prerelease: true
         files: |
