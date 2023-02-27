@@ -34,7 +34,7 @@
         <javac.source>1.8</javac.source>
         <javac.target>1.8</javac.target>
 
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
         <maven-release-plugin.version>3.0.0-M7</maven-release-plugin.version>
 
