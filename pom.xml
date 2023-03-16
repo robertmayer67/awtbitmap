@@ -39,7 +39,7 @@
         <maven-release-plugin.version>3.0.0-M7</maven-release-plugin.version>
 
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-        <maven-surefirejunit.version>2.22.2</maven-surefirejunit.version>
+        <maven-surefirejunit.version>3.0.0</maven-surefirejunit.version>
 
         <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
 
