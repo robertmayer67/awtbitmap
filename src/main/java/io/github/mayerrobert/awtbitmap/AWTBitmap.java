@@ -49,7 +49,7 @@ public final class AWTBitmap {
 
         System.out.println("Done in " + (System.currentTimeMillis() - tStart) + "ms");
 
-        java.awt.EventQueue.invokeLater(() -> {
+        EventQueue.invokeLater(() -> {
             final Frame f = new Frame("AWT Bitmap Demo");
             f.addWindowListener(new WindowAdapter() {
                 @Override
