@@ -14,9 +14,14 @@ env:
   JAVA_VERSION: 17
   JAVA_TARGET: 8
 
+permissions:
+  contents: read
+
 jobs:
   build:
 
+    permissions:
+      contents: write  # for softprops/action-gh-release to create GitHub release
     runs-on: ubuntu-latest
     name: Release
 
