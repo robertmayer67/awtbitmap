@@ -46,7 +46,7 @@
         <maven-site-plugin.version>3.12.1</maven-site-plugin.version>
 
         <!-- report maven-plugins -->
-        <maven-reports-plugin.version>3.6.1</maven-reports-plugin.version>
+        <maven-reports-plugin.version>3.6.2</maven-reports-plugin.version>
         <maven-changelog-plugin.version>2.3</maven-changelog-plugin.version>
         <maven-jxr-plugin.version>3.4.0</maven-jxr-plugin.version>
         <maven-javadoc-plugin.version>3.7.0</maven-javadoc-plugin.version>
