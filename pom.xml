@@ -43,7 +43,7 @@
 
         <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
 
-        <maven-site-plugin.version>3.12.1</maven-site-plugin.version>
+        <maven-site-plugin.version>3.20.0</maven-site-plugin.version>
 
         <!-- report maven-plugins -->
         <maven-reports-plugin.version>3.6.2</maven-reports-plugin.version>
