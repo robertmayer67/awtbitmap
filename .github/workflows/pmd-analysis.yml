@@ -39,6 +39,6 @@ jobs:
           rulesets: 'quickstart.xml'
           sourcePath: 'src/main/java'
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@4dd16135b69a43b6c8efb853346f8437d92d3c93 # v3.26.6
+        uses: github/codeql-action/upload-sarif@e2b3eafc8d227b0241d48be5f425d47c2d750a13 # v3.26.10
         with:
           sarif_file: pmd-report.sarif
